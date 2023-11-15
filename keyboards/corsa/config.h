@@ -81,7 +81,7 @@
 //#define AUDIO_DISPLAY_NUM   1
 //#define RENDER_BUFFER_SIZE  (60*60*2)
 
-// vial 
+// vial
 //#define VIAL_INSECURE
 #define VIAL_KEYBOARD_UID {0x70, 0xB9, 0xB7, 0xE3, 0xB6, 0x82, 0x82, 0xFC}
 

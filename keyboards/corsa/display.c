@@ -100,7 +100,7 @@ typedef struct {
 static uint16_t anim_buf[ANIM_WIDTH*ANIM_HEIGHT];
 
 static bool screen_enable = true;
-static bool screen_adjust = false;
+// static bool screen_adjust = false;
 static bool filling = false;
 static render_t renders[] = {
     {
@@ -118,6 +118,7 @@ static render_t renders[] = {
     },
 };
 
+/*
 static uint32_t decrease_min(uint32_t data, uint32_t MIN)
 {
     if(data > MIN) return (--data);
@@ -126,9 +127,10 @@ static uint32_t decrease_min(uint32_t data, uint32_t MIN)
 
 static uint32_t increase_max(uint32_t data, uint32_t MAX)
 {
-    if(data < MAX) return (++data); 
+    if(data < MAX) return (++data);
     else return data;
 }
+*/
 
 #ifdef  TYPING_SPEED
 #define TYPING_INTERVAL     100
@@ -213,7 +215,7 @@ void matrix_init_kb(void)
     set_screen_state(screen_enable);
     last_ticks = timer_read32();
 
-    uint32_t kbd = eeconfig_read_kb(); 
+    uint32_t kbd = eeconfig_read_kb();
     uint8_t x = kbd&0xFF;
     uint8_t y = (kbd>>8)&0xFF;
     bool update = false;
@@ -331,6 +333,7 @@ void screen_task_kb(void)
 #include "quantum.h"
 #include "usb_interface.h"
 
+/*
 bool process_record_kb(uint16_t keycode, keyrecord_t *record)
 {
     if (!record->event.pressed) {
@@ -385,15 +388,16 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record)
         //    msc_erase();
         //    reset_to_msc(true);
         //    return false;
-        case KC_F24: 
+        case KC_F24:
             reset_to_msc((usb_setting & USB_MSC_BIT) ? false : true);
             return false;
         default:
             break;
     }
 
-    return true;
+    return process_record_user(keycode, record);
 }
+*/
 
 static void reset_to_msc(bool msc)
 {
